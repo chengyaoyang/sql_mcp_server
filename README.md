@@ -67,11 +67,11 @@ SQL 查询 MCP 服务器，基于 `sql_mcp_server` 自身的 STDIO 架构实现�
       "command": "uv",
       "args": [
         "--directory",
-        "/home/cheng/sql_mcp_server",
+        "/path/to/your/sql_mcp_server",
         "run",
         "sql-mcp-server",
         "--db-path",
-        "/home/cheng/sql_mcp_server/test_data/test.sqlite"
+        "/path/to/your/sql_mcp_server/test_data/test.sqlite"
       ],
       "env": {
         "SQL_MCP_MAX_ROWS": "2000",
@@ -85,6 +85,7 @@ SQL 查询 MCP 服务器，基于 `sql_mcp_server` 自身的 STDIO 架构实现�
 - `command`/`args`：使用 `uv run` 启动 STDIO 服务。
 - `--db-path`：指定默认 SQLite 数据库文件路径。
 - `env`：按需传入其他配置（例如最大行数、结果存储目录，详见 `src/sql_mcp_server/config.py`）。设置 `SQL_MCP_READ_ONLY=true` 可以强制以只读模式执行 SQL。
+- 将 `"--directory"` 后面的路径替换为本地仓库所在位置，并同步更新 `"--db-path"` 中的路径。
 
 ### License
 
