@@ -10,13 +10,24 @@ SQL 查询 MCP 服务器，基于 `sql_mcp_server` 自身的 STDIO 架构实现�
 - `src/sql_mcp_server/resources/`：查询结果资源管理占位实现。
 - `src/sql_mcp_server/prompts/`：示例 Prompt 处理逻辑。
 
-### 本地运行
+### 安装与使用
 
-```bash
-uv run sql-mcp-server
-```
+1. 克隆仓库并进入目录：
 
-可通过环境变量或 `--storage-path` 自定义查询结果缓存目录。默认可使用环境变量 `SQL_MCP_DEFAULT_DB_PATH` 或命令行 `--db-path` 指定 SQLite 数据库文件，也可在工具调用参数里提供 `database_path`。
+   ```bash
+   git clone git@github.com:chengyaoyang/sql_mcp_server.git
+   cd sql_mcp_server
+   ```
+
+2. 安装依赖：
+
+   ```bash
+   uv sync
+   ```
+
+3. 在 MCP 客户端配置服务（示例见下节），根据需要修改数据库相关的环境变量或参数。
+
+> 可通过环境变量或 `--storage-path` 自定义查询结果缓存目录。默认可使用环境变量 `SQL_MCP_DEFAULT_DB_PATH` 或命令行 `--db-path` 指定 SQLite 数据库文件，也可在工具调用参数里提供 `database_path`。
 
 ### SQLite 快速体验
 
@@ -47,7 +58,7 @@ uv run sql-mcp-server
 
 ### MCP 配置示例
 
-以 Claude Desktop 或兼容 MCP 客户端为例，可在配置中添加：
+以 Claude Desktop 或兼容 MCP 客户端为例，可在配置中添加（请将 `--directory` 的路径替换为你本机的仓库位置）：
 
 ```json
 {
